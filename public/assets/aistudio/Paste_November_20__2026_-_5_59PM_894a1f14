@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أحمد عماد الدين جمال | مصمم مواقع ومبرمج وأخصائي دعم فني</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['Inter', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+    }
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-float {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/85 dark:bg-slate-950/85 glass-card">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#hero" class="flex items-center gap-2.5 font-extrabold text-lg tracking-tight shrink-0">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-md shadow-cyan-500/20">
+          <i data-lucide="terminal" class="w-5 h-5"></i>
+        </span>
+        <span>أحمد <span class="text-cyan-600 dark:text-cyan-400">عماد</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">عني</a>
+        <a href="#services" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">الخدمات</a>
+        <a href="#skills" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">المهارات</a>
+        <a href="#troubleshooter" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">تشخيص الويندوز</a>
+        <a href="#contact" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">تواصل معي</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" type="button" aria-label="تبديل المظهر" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors">
+          <i id="themeIconSun" data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+          <i id="themeIconMoon" data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+        </button>
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-bold shadow-md shadow-cyan-600/20 transition-all">
+          <span>اطلب خدمة</span>
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        </a>
+        <button id="mobileMenuBtn" type="button" aria-label="القائمة" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-3 space-y-1">
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-900">عني</a>
+      <a href="#services" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-900">الخدمات</a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-900">المهارات</a>
+      <a href="#troubleshooter" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-900">تشخيص الويندوز</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900">اطلب خدمة الآن</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>متاح لتصميم المواقع والدعم الفني أونلاين</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            أهلاً، أنا <span class="bg-gradient-to-l from-cyan-500 to-blue-600 bg-clip-text text-transparent">أحمد عماد الدين جمال</span>
+          </h1>
+
+          <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+            مصمم مواقع ومبرمج وأخصائي دعم فني متخصص في حل مشاكل الويندوز أونلاين. أدرس نظم ومعلومات إدارية (<span class="font-mono font-semibold text-cyan-600 dark:text-cyan-400">BIS</span>) في معهد الحجاز، وأجمع بين بناء واجهات الويب العصرية وحل المشاكل التقنية بسرعة وكفاءة.
+          </p>
+
+          <div class="flex flex-wrap gap-3 pt-1">
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-l from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold shadow-lg shadow-cyan-600/25 transition-all">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>ابدأ مشروعك أو اطلب دعم فني</span>
+            </a>
+            <a href="#troubleshooter" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-cyan-500 dark:hover:border-cyan-500 font-bold transition-all">
+              <i data-lucide="wrench" class="w-4 h-4 text-cyan-600 dark:text-cyan-400"></i>
+              <span>فحص مشاكل الويندوز</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Summary Card -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 p-6 shadow-xl shadow-slate-200/50 dark:shadow-black/40 space-y-5 animate-float">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-extrabold text-xl">
+                  أ
+                </div>
+                <div>
+                  <h2 class="font-bold text-base">أحمد عماد الدين جمال</h2>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Web Designer • Developer • IT Support</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 text-xs font-bold">BIS</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs mb-1">
+                  <i data-lucide="user" class="w-3.5 h-3.5 text-cyan-500"></i>
+                  <span>العمر</span>
+                </div>
+                <p class="font-bold">18 سنة</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs mb-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-500"></i>
+                  <span>الإقامة</span>
+                </div>
+                <p class="font-bold">المرج، القاهرة</p>
+              </div>
+              <div class="col-span-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs mb-1">
+                  <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-cyan-500"></i>
+                  <span>التعليم</span>
+                </div>
+                <p class="font-bold">معهد الحجاز — نظم ومعلومات (BIS)</p>
+              </div>
+              <div class="col-span-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs mb-1">
+                  <i data-lucide="monitor-check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                  <span>التخصص العملي</span>
+                </div>
+                <p class="font-bold">تصميم وبرمجة المواقع + دعم فني ويندوز أونلاين</p>
+              </div>
+              <div class="col-span-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-300 text-xs mb-0.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    <span>رقم الهاتف والواتساب</span>
+                  </div>
+                  <a href="tel:01013835847" dir="ltr" class="font-mono font-bold text-sm text-emerald-800 dark:text-emerald-200 hover:underline">01013835847</a>
+                </div>
+                <a href="https://wa.me/201013835847" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  <span>واتساب</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 border-t border-slate-200/70 dark:border-slate-800/70 bg-white/50 dark:bg-slate-900/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">نبذة عني</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">الجمع بين الإبداع البرمجي والدعم التقني</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="md:col-span-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 space-y-4">
+            <h3 class="text-xl font-bold flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-cyan-500"></i>
+              <span>من أنا؟</span>
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              اسمي <strong>أحمد عماد الدين جمال</strong>، شاب مصري عمري 18 عاماً وأقيم في منطقة المرج بالقاهرة. أدرس حالياً في <strong>معهد الحجاز</strong> تخصص <strong>نظم ومعلومات إدارية (BIS)</strong>، وهو ما يمنحني فهماً قوياً لكيفية توظيف التكنولوجيا في خدمة الأعمال والأفراد.
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              أعمل كمصمم ومطور مواقع ويب أركز على بناء تجارب مستخدم سريعة ومتجاوبة، وإلى جانب البرمجة أعمل كأخصائي دعم فني لتقديم حلول فورية لمشاكل أنظمة التشغيل (Windows) عن بُعد، بدءاً من تسريع الأجهزة وإصلاح أعطال النظام وحتى ضبط البرامج والتعريفات.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-2">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                <i data-lucide="award" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold">لماذا العمل معي؟</h3>
+              <ul class="space-y-2.5 text-sm text-slate-300 pt-2">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>تصاميم حديثة ومتوافقة مع الهاتف والكمبيوتر.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>تشخيص دقيق وحل سريع لمشاكل الويندوز أونلاين.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                  <span>التزام بالمواعيد ومتابعة مستمرة بعد التسليم.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-colors">
+              <span>تواصل معي الآن</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 border-t border-slate-200/70 dark:border-slate-800/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">خدماتي</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">ماذا أقدم لك؟</h2>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400">اختر الخدمة المطلوبة للانتقال مباشرة إلى نموذج الطلب</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Service 1 -->
+          <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 hover:border-cyan-500/60 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="layout" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold">تصميم المواقع (Web Design)</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                تصميم واجهات مستخدم جذابة وعصرية (UI/UX) متجاوبة بالكامل مع جميع الشاشات، تشمل المواقع الشخصية، صفحات الهبوط، ومواقع الشركات.
+              </p>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-500"></i> تصميم متجاوب للموبايل والكمبيوتر</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-500"></i> وضع ليلي ونهاري وتجربة مريحة</li>
+              </ul>
+            </div>
+            <button type="button" data-select-service="تصميم موقع إلكتروني" class="select-service-btn mt-6 w-full py-2.5 px-4 rounded-xl border border-cyan-600/30 bg-cyan-500/10 hover:bg-cyan-600 hover:text-white text-cyan-700 dark:text-cyan-300 font-bold text-sm transition-colors">
+              اطلب تصميم موقع
+            </button>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 hover:border-blue-500/60 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold">البرمجة وتطوير الويب</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                تحويل الأفكار والتصاميم إلى مواقع وتطبيقات ويب تفاعلية سريعة الأداء باستخدام كود نظيف وممارسات برمجية حديثة.
+              </p>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-500"></i> تطوير واجهات تفاعلية (HTML/CSS/JS)</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-500"></i> تحسين السرعة والأداء</li>
+              </ul>
+            </div>
+            <button type="button" data-select-service="برمجة وتطوير ويب" class="select-service-btn mt-6 w-full py-2.5 px-4 rounded-xl border border-blue-600/30 bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-700 dark:text-blue-300 font-bold text-sm transition-colors">
+              اطلب خدمة برمجة
+            </button>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 hover:border-emerald-500/60 transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold">دعم فني وحل مشاكل الويندوز أونلاين</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                مساعدة فورية عن بُعد لحل أعطال ويندوز 10 و11، تسريع الأجهزة البطيئة، إزالة الفيروسات، وتثبيت التعريفات والبرامج الأساسية.
+              </p>
+              <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> دعم فني أونلاين عن بُعد (AnyDesk)</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> إصلاح الشاشة الزرقاء وأخطاء النظام</li>
+              </ul>
+            </div>
+            <button type="button" data-select-service="دعم فني وحل مشاكل الويندوز أونلاين" class="select-service-btn mt-6 w-full py-2.5 px-4 rounded-xl border border-emerald-600/30 bg-emerald-500/10 hover:bg-emerald-600 hover:text-white text-emerald-700 dark:text-emerald-300 font-bold text-sm transition-colors">
+              اطلب دعم فني الآن
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 border-t border-slate-200/70 dark:border-slate-800/70 bg-white/50 dark:bg-slate-900/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">المهارات والأدوات</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">الخبرات التقنية والأكاديمية</h2>
+          </div>
+
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="تصفية المهارات">
+            <button type="button" data-skill-filter="all" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600 text-white transition-colors">الكل</button>
+            <button type="button" data-skill-filter="web" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">تصميم وبرمجة</button>
+            <button type="button" data-skill-filter="support" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">دعم فني وويندوز</button>
+            <button type="button" data-skill-filter="bis" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">نظم معلومات BIS</button>
+          </div>
+        </div>
+
+        <div id="skillsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Windows Troubleshooter -->
+    <section id="troubleshooter" class="py-16 border-t border-slate-200/70 dark:border-slate-800/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="mb-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">أداة تفاعلية</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">مساعد تشخيص مشاكل الويندوز</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">اختر المشكلة التي تواجهك للحصول على خطوات فحص سريعة أو طلب تدخل دعم فني أونلاين.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div id="issueButtons" class="lg:col-span-5 space-y-2.5">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 flex flex-col justify-between">
+            <div id="issueDetail" class="space-y-4">
+              <!-- Rendered by JS -->
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+              <span class="text-xs text-slate-500 dark:text-slate-400">لم تُحل المشكلة بعد؟ أستطيع مساعدتك أونلاين خطوة بخطوة.</span>
+              <button id="requestTroubleshootBtn" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold transition-colors">
+                <i data-lucide="headphones" class="w-4 h-4"></i>
+                <span>اطلب حل هذه المشكلة أونلاين</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 border-t border-slate-200/70 dark:border-slate-800/70 bg-white/50 dark:bg-slate-900/30">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">تواصل معي</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">اطلب خدمة أو استشارة تقنية</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">املأ البيانات التالية وسيتم تجهيز طلبك فوراً للتواصل.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 mb-6">
+          <a href="tel:01013835847" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 flex items-center gap-3 hover:border-cyan-500/60 transition-colors">
+            <span class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">اتصال مباشر</p>
+              <p dir="ltr" class="font-mono font-bold text-sm">01013835847</p>
+            </div>
+          </a>
+          <a href="https://wa.me/201013835847" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 flex items-center gap-3 hover:border-emerald-500/60 transition-colors">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">واتساب فوري</p>
+              <p class="font-bold text-sm text-emerald-600 dark:text-emerald-400">مراسلة الآن</p>
+            </div>
+          </a>
+          <button id="copyPhoneBtn" type="button" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 flex items-center gap-3 hover:border-blue-500/60 transition-colors text-right">
+            <span class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+              <i data-lucide="copy" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">نسخ الرقم</p>
+              <p id="copyPhoneText" class="font-bold text-sm">نسخ 01013835847</p>
+            </div>
+          </button>
+        </div>
+
+        <form id="contactForm" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-lg space-y-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="clientName" class="block text-sm font-bold mb-1.5">الاسم بالكامل</label>
+              <input id="clientName" type="text" required placeholder="مثال: محمد أحمد" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm" />
+            </div>
+            <div>
+              <label for="clientContact" class="block text-sm font-bold mb-1.5">رقم الواتساب أو البريد الإلكتروني</label>
+              <input id="clientContact" type="text" required placeholder="رقم الهاتف أو الإيميل" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <label for="serviceType" class="block text-sm font-bold mb-1.5">نوع الخدمة المطلوبة</label>
+            <select id="serviceType" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm">
+              <option value="تصميم موقع إلكتروني">تصميم موقع إلكتروني</option>
+              <option value="برمجة وتطوير ويب">برمجة وتطوير ويب</option>
+              <option value="دعم فني وحل مشاكل الويندوز أونلاين">دعم فني وحل مشاكل الويندوز أونلاين</option>
+              <option value="استشارة عامة / أخرى">استشارة عامة / أخرى</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="clientMessage" class="block text-sm font-bold mb-1.5">تفاصيل الطلب أو المشكلة</label>
+            <textarea id="clientMessage" rows="4" required placeholder="اكتب تفاصيل الموقع المطلوب أو وصف مشكلة الويندوز..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"></textarea>
+          </div>
+
+          <div id="formError" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 text-sm font-semibold"></div>
+
+          <button type="submit" class="w-full py-3 px-6 rounded-xl bg-gradient-to-l from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold shadow-lg shadow-cyan-600/20 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span>تأكيد وتجهيز الطلب</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>أحمد عماد الدين جمال — المرج، القاهرة | معهد الحجاز (BIS) | <a href="tel:01013835847" dir="ltr" class="font-mono hover:text-cyan-500 transition-colors">01013835847</a></p>
+      <p>© <span id="yearNow"></span> جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center">
+            <i data-lucide="check-check" class="w-5 h-5"></i>
+          </span>
+          <h3 id="modalTitle" class="font-extrabold text-lg">تم تجهيز طلبك بنجاح</h3>
+        </div>
+        <button id="closeModalBtn" type="button" aria-label="إغلاق" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="modalSummary" class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 text-sm space-y-1.5 leading-relaxed"></div>
+
+      <div class="flex flex-wrap gap-2">
+        <a id="whatsappSendBtn" href="https://wa.me/201013835847" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>إرسال عبر واتساب</span>
+        </a>
+        <button id="copySummaryBtn" type="button" class="flex-1 py-2.5 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+          <i data-lucide="copy" class="w-4 h-4"></i>
+          <span id="copyBtnText">نسخ تفاصيل الطلب</span>
+        </button>
+        <button id="doneModalBtn" type="button" class="py-2.5 px-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-sm transition-colors">
+          إغلاق
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const skillsData = [
+        { name: 'HTML5 & CSS3', category: 'web', level: 'متقدم', desc: 'بناء هياكل صفحات ويب متوافقة مع المعايير القياسية وتصميم متجاوب.' },
+        { name: 'JavaScript (ES6+)', category: 'web', level: 'جيد جداً', desc: 'إضافة التفاعلية ومعالجة البيانات وبناء تطبيقات الويب.' },
+        { name: 'UI/UX & Responsive Design', category: 'web', level: 'متقدم', desc: 'تصميم واجهات مريحة للعين وسهلة الاستخدام على الهاتف والكمبيوتر.' },
+        { name: 'تشخيص وإصلاح الويندوز (10/11)', category: 'support', level: 'متقدم', desc: 'حل أخطاء النظام، الشاشة الزرقاء، ومشاكل الإقلاع والتحديثات.' },
+        { name: 'الدعم الفني عن بُعد (Remote)', category: 'support', level: 'متقدم', desc: 'تقديم حلول سريعة أونلاين عبر AnyDesk وTeamViewer بأمان تام.' },
+        { name: 'تحسين الأداء وإزالة الفيروسات', category: 'support', level: 'متقدم', desc: 'تنظيف الجهاز من البرمجيات الخبيثة وتسريع استجابة النظام.' },
+        { name: 'نظم المعلومات الإدارية (BIS)', category: 'bis', level: 'طالب جامعي', desc: 'دراسة تحليل النظم وقواعد البيانات وتطبيقات التكنولوجيا في الأعمال.' },
+        { name: 'إدارة قواعد البيانات والملفات', category: 'bis', level: 'جيد جداً', desc: 'تنظيم البيانات وتهيئة بيئات العمل المكتبية وبرامج Office.' },
+        { name: 'التعريفات والشبكات الأساسية', category: 'support', level: 'جيد جداً', desc: 'حل مشاكل الاتصال بالإنترنت وتثبيت تعريفات الكروت والطابعات.' }
+      ];
+
+      const windowsIssues = [
+        {
+          id: 'slow',
+          title: 'بطء الجهاز وتهنيج الويندوز',
+          icon: 'gauge',
+          summary: 'استهلاك عالٍ للرام أو المعالج أو امتلاء القرص الصلب مما يسبب بطء الاستجابة.',
+          steps: [
+            'افحص مدير المهام (Task Manager) لمعرفة البرامج التي تستهلك المعالج أو الرام.',
+            'عطّل برامج بدء التشغيل غير الضرورية من تبويب Startup.',
+            'تأكد من وجود مساحة فارغة لا تقل عن 15% على قرص النظام (C).'
+          ]
+        },
+        {
+          id: 'bsod',
+          title: 'ظهور الشاشة الزرقاء (BSOD)',
+          icon: 'alert-triangle',
+          summary: 'توقف مفاجئ للنظام بسبب تعارض تعريفات أو تلف في ملفات النظام أو الذاكرة.',
+          steps: [
+            'سجّل رمز الخطأ الظاهر أسفل الشاشة الزرقاء (Stop Code).',
+            'تأكد من تحديث تعريفات كارت الشاشة واللوحة الأم.',
+            'يمكن فحص ملفات النظام بالأمر sfc /scannow وإصلاحها عن بُعد.'
+          ]
+        },
+        {
+          id: 'virus',
+          title: 'فيروسات وبرامج ضارة أو إعلانات مزعجة',
+          icon: 'shield-alert',
+          summary: 'نشاط غير معتاد، نوافذ منبثقة، أو تشفير واختفاء بعض الملفات.',
+          steps: [
+            'افصل الإنترنت مؤقتاً إذا لاحظت استهلاكاً مريباً للشبكة.',
+            'تجنب تشغيل أي ملفات مجهولة المصدر أو فلاشات غير مفحوصة.',
+            'أقوم بفحص شامل وتنظيف النظام وتأمينه دون فقدان ملفاتك.'
+          ]
+        },
+        {
+          id: 'drivers',
+          title: 'مشاكل الصوت والشبكة والتعريفات',
+          icon: 'wifi-off',
+          summary: 'انقطاع الواي فاي، توقف الصوت، أو عدم تعرف الجهاز على الطابعة أو الشاشة.',
+          steps: [
+            'تحقق من قائمة Device Manager لوجود علامات تعجب صفراء.',
+            'تجنب برامج التعريفات العشوائية واعتمد على التعريف الرسمي للموديل.',
+            'أوفر لك تثبيت وضبط التعريفات الأصلية أونلاين خلال دقائق.'
+          ]
+        }
+      ];
+
+      let activeFilter = 'all';
+      let activeIssueId = windowsIssues[0].id;
+      let lastRequestText = '';
+
+      // Year
+      document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+      // Theme toggle
+      const htmlEl = document.documentElement;
+      try {
+        const savedTheme = localStorage.getItem('ahmed_theme');
+        if (savedTheme === 'light') htmlEl.classList.remove('dark');
+        else if (savedTheme === 'dark') htmlEl.classList.add('dark');
+      } catch (e) {}
+
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        try {
+          localStorage.setItem('ahmed_theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+        } catch (e) {}
+      });
+
+      // Mobile menu
+      const mobileMenu = document.getElementById('mobileMenu');
+      document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+
+      // Render Skills
+      function renderSkills() {
+        const grid = document.getElementById('skillsGrid');
+        const filtered = activeFilter === 'all' ? skillsData : skillsData.filter((s) => s.category === activeFilter);
+        grid.innerHTML = filtered.map((skill) => `
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-2.5 hover:border-cyan-500/50 transition-colors">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-bold text-base">${skill.name}</h3>
+              <span class="px-2.5 py-0.5 rounded-lg bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 text-xs font-bold shrink-0">${skill.level}</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${skill.desc}</p>
+          </div>
+        `).join('');
+      }
+
+      document.querySelectorAll('.skill-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          activeFilter = tab.getAttribute('data-skill-filter');
+          document.querySelectorAll('.skill-tab').forEach((btn) => {
+            const isSelected = btn === tab;
+            btn.className = isSelected
+              ? 'skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600 text-white transition-colors'
+              : 'skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors';
+          });
+          document.getElementById('copyPhoneBtn').addEventListener('click', () => {
+        const phone = '01013835847';
+        const label = document.getElementById('copyPhoneText');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(phone).then(() => {
+            label.textContent = 'تم نسخ الرقم!';
+          }).catch(() => fallbackCopy(phone, label));
+        } else {
+          fallbackCopy(phone, label);
+        }
+      });
+
+      renderSkills();
+        });
+      });
+
+      // Render Troubleshooter
+      function renderTroubleshooter() {
+        const btnsEl = document.getElementById('issueButtons');
+        const detailEl = document.getElementById('issueDetail');
+        const current = windowsIssues.find((i) => i.id === activeIssueId) || windowsIssues[0];
+
+        btnsEl.innerHTML = windowsIssues.map((issue) => {
+          const active = issue.id === current.id;
+          return `
+            <button type="button" data-issue-id="${issue.id}" class="issue-btn w-full text-right p-4 rounded-xl border transition-all flex items-center justify-between gap-3 ${
+              active
+                ? 'border-emerald-500 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold'
+                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500/40 font-semibold'
+            }">
+              <span class="flex items-center gap-3 text-sm">
+                <i data-lucide="${issue.icon}" class="w-4 h-4 shrink-0"></i>
+                <span>${issue.title}</span>
+              </span>
+              <i data-lucide="chevron-left" class="w-4 h-4 shrink-0 opacity-60"></i>
+            </button>
+          `;
+        }).join('');
+
+        detailEl.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center shrink-0">
+              <i data-lucide="${current.icon}" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <h3 class="text-lg font-extrabold">${current.title}</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">${current.summary}</p>
+            </div>
+          </div>
+          <div class="space-y-2.5 pt-2">
+            <p class="text-xs font-bold text-slate-500 dark:text-slate-400">خطوات فحص أولية:</p>
+            <ul class="space-y-2">
+              ${current.steps.map((step, idx) => `
+                <li class="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl">
+                  <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
+                  <span>${step}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        `;
+
+        btnsEl.querySelectorAll('.issue-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            activeIssueId = btn.getAttribute('data-issue-id');
+            renderTroubleshooter();
+          });
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      document.getElementById('requestTroubleshootBtn').addEventListener('click', () => {
+        const current = windowsIssues.find((i) => i.id === activeIssueId) || windowsIssues[0];
+        const selectEl = document.getElementById('serviceType');
+        const msgEl = document.getElementById('clientMessage');
+        selectEl.value = 'دعم فني وحل مشاكل الويندوز أونلاين';
+        msgEl.value = 'أحتاج مساعدة أونلاين بخصوص: ' + current.title;
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        msgEl.focus();
+      });
+
+      // Service card quick-select
+      document.querySelectorAll('.select-service-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const service = btn.getAttribute('data-select-service');
+          document.getElementById('serviceType').value = service;
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('clientName').focus();
+        });
+      });
+
+      // Form & Modal
+      const confirmModal = document.getElementById('confirmModal');
+      const formError = document.getElementById('formError');
+
+      function closeModal() {
+        confirmModal.classList.add('hidden');
+      }
+
+      document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+      document.getElementById('doneModalBtn').addEventListener('click', closeModal);
+      confirmModal.addEventListener('click', (e) => {
+        if (e.target === confirmModal) closeModal();
+      });
+
+      document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value.trim();
+        const contact = document.getElementById('clientContact').value.trim();
+        const service = document.getElementById('serviceType').value;
+        const message = document.getElementById('clientMessage').value.trim();
+
+        if (!name || !contact || !message) {
+          formError.textContent = 'يرجى ملء الاسم، وسيلة التواصل، وتفاصيل الطلب قبل المتابعة.';
+          formError.classList.remove('hidden');
+          return;
+        }
+        formError.classList.add('hidden');
+
+        lastRequestText = `طلب خدمة لأحمد عماد الدين جمال\nالاسم: ${name}\nالتواصل: ${contact}\nالخدمة: ${service}\nالتفاصيل: ${message}`;
+        document.getElementById('whatsappSendBtn').href = 'https://wa.me/201013835847?text=' + encodeURIComponent(lastRequestText);
+
+        document.getElementById('modalSummary').innerHTML = `
+          <p><strong>الاسم:</strong> ${name}</p>
+          <p><strong>وسيلة التواصل:</strong> ${contact}</p>
+          <p><strong>الخدمة:</strong> ${service}</p>
+          <p><strong>التفاصيل:</strong> ${message}</p>
+        `;
+        document.getElementById('copyBtnText').textContent = 'نسخ تفاصيل الطلب';
+        confirmModal.classList.remove('hidden');
+        e.target.reset();
+      });
+
+      document.getElementById('copySummaryBtn').addEventListener('click', () => {
+        if (!lastRequestText) return;
+        const btnText = document.getElementById('copyBtnText');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(lastRequestText).then(() => {
+            btnText.textContent = 'تم النسخ!';
+          }).catch(() => fallbackCopy(lastRequestText, btnText));
+        } else {
+          fallbackCopy(lastRequestText, btnText);
+        }
+      });
+
+      function fallbackCopy(text, labelEl) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          labelEl.textContent = 'تم النسخ!';
+        } catch (err) {
+          labelEl.textContent = 'تعذر النسخ';
+        }
+        document.body.removeChild(ta);
+      }
+
+      renderSkills();
+      renderTroubleshooter();
+      if (window.lucide) window.lucide.createIcons();
+    })();
+  </script>
+</body>
+</html>
